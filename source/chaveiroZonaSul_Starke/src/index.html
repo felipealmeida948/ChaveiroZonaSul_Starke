@@ -4,24 +4,26 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Chaveiro Zona Sul</title>
-        <link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
-        <link rel="stylesheet" href="css/styleNew.css" integrity="sha385-Aug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styleNew.css">
         <link rel="stylesheet" href="css/styleBarra.css">
     </head>
     <body> 
 
-            <header class="topo">
-                <div class="logo">
-                    <img src="imagens/logo.svg" alt="Chaveiro Zona Sul">
-                </div>
-
-                <div class="menu">
-                        <li class="item-menu"> <a href="#sobre">Sobre</a></li>
-                    <li class="item-menu"> <a href="#servicos">Serviços</a></li>
-                    <li class="item-menu"> <a href="#contato">Contato</a></li>
-                </div>
-
-            </header>
+        <div id="header">
+            <div id="header-bg">
+                <header class="topo">
+                    <div class="logo">
+                        <img src="imagens/logo.svg" alt="Chaveiro Zona Sul">
+                    </div>
+                    <div class="menu">
+                            <li class="item-menu"> <a href="#sobre">Sobre</a></li>
+                        <li class="item-menu"> <a href="#servicos">Serviços</a></li>
+                        <li class="item-menu"> <a href="#contato">Contato</a></li>
+                    </div>
+                </header>
+            </div>
+        </div>
 
             <!-- BANNER DE INICIO -->
             <div class="banner-top">       
@@ -147,7 +149,7 @@
                                 </div>
                                 <div class="col-9 HorasCol24">
                                     <div class="title-c">Copia de Chaves e Carimbos</div>
-                                    <p class="textC" >PROFISSIONAIS CAPACITADOS PARA REALIZAÇÃO DE COPIAS DE DIVERSOS TIPOS DE CHAVES</b> da região e támbem encomenda de carimbos</p>
+                                    <p class="textC" >PROFISSIONAIS CAPACITADOS PARA REALIZAÇÃO DE COPIAS DE DIVERSOS TIPOS DE CHAVES da região e támbem encomenda de carimbos</p>
                                 </div>
                             </div>                   
                         </div>
@@ -216,12 +218,12 @@
                 $(window).scroll(function() {
                     if (($(window).scrollTop()) >= 40) {
                     if (!scrolling){
-                        $('header').addClass("op");
+                        $('#header').addClass("op");
                         scrolling = true;
                         
                     }
                     } else {
-                        $('header').removeClass("op");
+                        $('#header').removeClass("op");
                     scrolling=false;
                     }
                 });

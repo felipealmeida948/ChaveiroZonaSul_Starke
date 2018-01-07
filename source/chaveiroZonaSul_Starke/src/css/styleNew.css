@@ -34,8 +34,28 @@ b {
   font-family: Poppins-Bold;
 }
 
-header .op #header-bg {
-  background: rgba(0,0,0,.8);
+#header {
+  width: 100%; 
+  border: 0;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 999999999999999999999999999999;
+}
+
+#header-bg {
+  background: rgba(0,0,0,0);
+  height: 110px;
+  margin-top: -18px;
+  z-index: 0;
+  position: fixed;
+  width: 100%;
+  transition:height .3s, background .3s;
+  padding:10px;
+}
+
+#header.op #header-bg {
+  background: #028cc7;
 }
 
 .imgPrinci{
@@ -351,11 +371,11 @@ figure.snip1104.hover:before {
 header.topo {
   display: flex;
   width: 1230px;
-  position: absolute;
+  position: fixed;
   left: 0;
   right: 0;
   margin: auto;
-  margin-top: 30px;
+  margin-top: 15px;
   z-index: 30;
 }
 
