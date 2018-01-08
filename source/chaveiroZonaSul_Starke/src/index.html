@@ -163,16 +163,18 @@
                             <p>Veja como é facil falar conosco ou se preferir venha nos visitar</p>
 
         
-                            <form action="sendEmail.php" method="POST">
+                            
                                 <div class="row divRowStyleMaps">
-                                    <div class="col-5 styleAlinharAEsquerda">                        
-                                        <input class="form-control txtTamanho" name="fullName" type="text" id="fullName" placeholder="Nome" required>
-                                        <input class="form-control txtTamanho" type="text" name="email"  id="email" placeholder="E-mail" required>
-                                        <input class="form-control txtTamanho" type="text" name="assunto"  id="assunto" placeholder="Assunto" required>
-                                        <textarea name="txtMsg" id="txtMsg" cols="auto" class="txtTamanho txtMsg" placeholder="Mensagem"></textarea>
-                                        <button type="submit">Enviar</button>
+                                    <div class="col-md-5 styleAlinharAEsquerda">    
+                                        <form action="enviarEmail.php" method="POST">                   
+                                            <input class="form-control txtTamanho" name="name" type="text" id="fullName" placeholder="Nome" required>
+                                            <input class="form-control txtTamanho" type="text" name="email"  id="email" placeholder="E-mail" required>
+                                            <input class="form-control txtTamanho" type="text" name="assunto"  id="assunto" placeholder="Assunto" required>
+                                            <textarea  class="txtTamanho txtMsg" name="txtMsg" id="txtMsg" cols="auto" placeholder="Mensagem"></textarea>
+                                            <button type="submit">Enviar</button><br>
+                                        </form>
                                     </div>
-                                    <div class="col-7">                           
+                                    <div class="col-md-7">                           
                                         <div class="row fluid telefones">
                                                 <p>(11) 5044-2607</p> 
                                                 <p>(11) 96794-4929</p>
@@ -180,7 +182,7 @@
                                         </div>                            
                                     </div>
                                 </div>
-                            </form>
+                           
                             <div class="maps">
                                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.50836619626!2d-46.68833008496959!3d-23.621958569718103!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce50be6ae53bbd%3A0x45f58f24ae696bd1!2sR.+Min.+Luiz+Gallotti%2C+96+-+Vila+Cordeiro%2C+S%C3%A3o+Paulo+-+SP%2C+04580-050!5e0!3m2!1spt-BR!2sbr!4v1514698452480"
                                                     width="100%" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
@@ -217,11 +219,11 @@
                 var scrolling = false;
                 $(window).scroll(function() {
                     if (($(window).scrollTop()) >= 40) {
-                    if (!scrolling){
-                        $('#header').addClass("op");
-                        scrolling = true;
-                        
-                    }
+                        if (!scrolling){
+                            $('#header').addClass("op");
+                            scrolling = true;
+                            
+                        }
                     } else {
                         $('#header').removeClass("op");
                     scrolling=false;
