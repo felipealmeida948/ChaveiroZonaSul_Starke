@@ -518,3 +518,117 @@ footer a:hover {
   margin-left: auto;
   margin-right: auto;
 }
+
+@media screen and (min-width: 768px) {
+  .avisoText3 {
+    display: none; 
+  }
+}
+
+/****** RESPONSIVO ******/
+
+@media screen and (max-width: 768px) {
+  .aviso24 {
+      display: flex;
+      width: 90%;
+      margin-top: -45px;
+      height: auto !important;
+      flex-direction: column;
+      flex-wrap: nowrap;
+  }
+
+  .avisoText2 .nameC, .sloganC, .telC, .aviso24 .form-group{
+    display: none;
+  }
+
+  .number {
+    font-size: 4rem;
+    font-family: Poppins-bold, Arial;
+    color: #01a2e9;
+    text-align: center;
+  }
+
+  .avisoText3, .avisoText4 {
+      padding: 20px;
+      width: 100%;
+  }
+
+  .nameC-M {
+    font-size: 2rem;
+    font-family: Poppins-Bold;
+    color: #777;
+  }
+
+  .text-m {
+    margin-top: -25px;
+  }
+
+  .telC-M {
+    margin-top: -5px;
+    font-size: 1.8rem;
+    font-family: Roboto;
+    color: #777;
+    font-weight: 800;
+  }
+
+  .avisoText4 {
+    background-color: #25D366;
+    border-radius: 0px 0px 10px 10px;
+  }
+
+  .text-atnd {
+    font-family: Poppins-Bold;
+    font-size: 1.2rem;
+    color: #fff;
+  }
+
+  .avisoText4 .text-m {
+    margin-top: 0px;
+    color: #fff !important;
+  }
+
+  .avisoText4 .telC-M {
+    color: #fff;
+    line-height: 1.7rem;
+    margin-top: 10px;
+  }
+
+  figure.snip1104 {
+    height: auto;
+    width: 100%;
+    flex: 1 1 200px;
+  }
+
+  figure.snip1104 h2 {
+    font-size: 2.5rem;
+  }
+
+  .imgC {
+    width: 60%;
+  }
+
+  .title-c {
+    text-align: center;
+    font-size: 2.3rem;
+    line-height: 2.5rem;
+    margin-bottom: 20px;
+    margin-top: 15px;
+  }
+
+  .textC {
+    text-align: center;
+  }
+
+  #contato p {
+    color: #fff;
+    font-size: 2rem;
+    line-height: 2rem;
+  }
+
+  .colorImg{
+    display: flex;
+    align-items: center;
+    height: 460px;
+  }
+
+}
