@@ -92,20 +92,19 @@ section {
   padding-bottom: 60px;
 }
 
-.aviso24{   
-    background-color: #ffd907;
-    width: 900px;
-    height: 180px;
-    margin-left: auto;
-    margin-top: -3%;
-    opacity: 1 !important;
-    z-index: 99999999;
-    margin-right: auto;
-    position: sticky;
-    display: block;
-    border-radius: 10px;
-    box-shadow: 0px 5px 50px 0 #0000002e;
-  
+.aviso24{
+  background-color: #ffd907;
+  width: 900px;
+  height: 238px;
+  margin-left: auto;
+  margin-top: -5%;
+  opacity: 1 !important;
+  z-index: 99999999;
+  margin-right: auto;
+  position: sticky;
+  display: block;
+  border-radius: 10px;
+  box-shadow: 0px 5px 50px 0 #0000002e;
 }
 
 
@@ -432,18 +431,26 @@ header.topo {
 }
 
 .telefones {
-  display: flex; 
-  flex-direction: column;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
   align-self: center;
   height: 100%;
 }
 
 .telefones p {
   text-align: center !important;
-  font-size: 3rem;
+  font-size: 2rem;
   font-family: Poppins-Bold;
   align-content: center;
   display: block;
+  line-height: 1.9rem;
+}
+
+.telefones h2 {
+  margin-bottom: 1.4rem;
+  color: #fff;
+  font-family: Poppins-Bold;
 }
 
 /* FORMULÁRIO */
@@ -523,6 +530,42 @@ footer a:hover {
   .avisoText3 {
     display: none; 
   }
+
+  .avisoText4 {
+    background-color: #25D366;
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    justify-content: center;
+  }
+
+  .hours-m {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .text-atnd {
+    font-family: Poppins-Bold;
+    font-size: 1.3rem;
+    color: #fff;
+  }
+
+  .avisoText4 .text-m {
+    margin-top: 0px;
+    color: #fff !important;
+
+  }
+
+  .avisoText4 .telC-M {
+    color: #fff;
+    line-height: 1.7rem;
+    margin-top: 10px;
+    font-size: 1.5rem;
+    font-family: Roboto;
+    font-weight: 700;
+  }
+
 }
 
 /****** RESPONSIVO ******/
@@ -564,11 +607,12 @@ footer a:hover {
   }
 
   .telC-M {
-    margin-top: -5px;
+    margin-top: 5px;
     font-size: 1.8rem;
     font-family: Roboto;
     color: #777;
     font-weight: 800;
+    line-height: 1.7rem;
   }
 
   .avisoText4 {
@@ -632,3 +676,4 @@ footer a:hover {
   }
 
 }
+
