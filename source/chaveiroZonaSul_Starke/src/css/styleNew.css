@@ -531,6 +531,10 @@ footer a:hover {
     display: none; 
   }
 
+  .bannerMobail{
+    display: none;    
+  }
+
   .avisoText4 {
     background-color: #25D366;
     border-radius: 0px 0px 10px 10px;
@@ -581,6 +585,10 @@ footer a:hover {
   }
 
   .avisoText2 .nameC, .sloganC, .telC, .aviso24 .form-group{
+    display: none;
+  }
+
+  .bannerMovel{
     display: none;
   }
 
