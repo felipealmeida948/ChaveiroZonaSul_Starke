@@ -65,7 +65,7 @@ b {
 }
 
 .colorImg{
-    background-image: url("../imagens/banner_1.jpg");
+    background-image: url("../imagens/banner_cm.jpg");
     background-position: center;
     height: 560px;
     width: auto;
@@ -683,5 +683,20 @@ footer a:hover {
     height: 460px;
   }
 
+}
+
+/* Banner FONT e AJUSTES */
+.d-none h2{
+  font-family: Poppins-Bold;
+  font-size: 3rem;
+}
+
+.d-none p{
+  margin-top: -15px;
+  font-size: 1.8rem;
+}
+
+.carousel-caption {
+  bottom: 120px;
 }
 
