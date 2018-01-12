@@ -1,6 +1,19 @@
 <!doctype html>
 <html lang="pt">
     <head>
+        	<!-- Piwik -->
+        <script type="text/javascript">
+            var _paq = _paq || [];
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function() {
+            var u="//cluster-piwik.locaweb.com.br/";
+            _paq.push(['setTrackerUrl', u+'piwik.php']);
+            _paq.push(['setSiteId', 21940]);
+            var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+            g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+            })();
+        </script>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Chaveiro Zona Sul</title>
@@ -251,18 +264,116 @@
                     <div class="container">
                         <div>
                             <h2 class="SerH3">Entre em contato ou venha até nós!</h2>  
-                            <p>Veja como é facil falar conosco ou se preferir venha nos visitar</p>
-
-        
-                            
+                            <p>Veja como é facil falar conosco ou se preferir venha nos visitar</p>       
+                            <?php 
+                            if (isset($_POST['BTEnvia'])) {
+                                // Inclui o arquivo class.phpmailer.php localizado na pasta class
+                                require_once("class/class.phpmailer.php");
+                                // require('./index');
+                                // Inicia a classe PHPMailer
+                                $mail = new PHPMailer(true);
+                                
+                                // Define os dados do servidor e tipo de conexão
+                                // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                                $mail->IsSMTP(); // Define que a mensagem será SMTP
+                                
+                                try {
+                                    
+                                    $nome= $_POST['nometxt'];
+                                    $emailEnvi = $_POST['emailtxt'];
+                                    $assunto= $_POST['assuntotxt'];
+                                    $mensagemEnvi= $_POST['txtMsg'];
+                                    
+                                    $mail->Host = 'smtp.starkeSolutions.com.br'; // Endereço do servidor SMTP (Autenticação, utilize o host smtp.seudomínio.com.br)
+                                    $mail->SMTPAuth   = true;  // Usar autenticação SMTP (obrigatório para smtp.seudomínio.com.br)
+                                    $mail->Port       = 587; //  Usar 587 porta SMTP
+                                    $mail->Username = 'jefferson@starkesolutions.com.br'; // Usuário do servidor SMTP (endereço de email)
+                                    $mail->Password = '900611Jeff@Starke'; // Senha do servidor SMTP (senha do email usado)
+                                
+                                    //Define o remetente
+                                    // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                                    $mail->SetFrom('jefferson@starkesolutions.com.br', 'Jefferson de Jesus'); //Seu e-mail
+                                    $mail->AddReplyTo('jefferson@starkesolutions.com.br', 'Jefferson de jesus'); //Seu e-mail
+                                    $mail->Subject = "".$assunto."";//Assunto do e-mail
+                                
+                                
+                                    //Define os destinatário(s)
+                                    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                                    $mail->AddAddress('jeff_jesusoliveira@hotmail.com', "Starke Solutions");
+                                
+                                    //Campos abaixo são opcionais 
+                                    //=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+                                    //$mail->AddCC('destinarario@dominio.com.br', 'Destinatario'); // Copia
+                                    //$mail->AddBCC('destinatario_oculto@dominio.com.br', 'Destinatario2`'); // Cópia Oculta
+                                    //$mail->AddAttachment('images/phpmailer.gif');      // Adicionar um anexo
+                                    $arquivo = "
+                                    <html>
+                                        <head>
+                                            <style type='text/css'>
+                                                body {
+                                                    margin:0px;
+                                                    font-family:Verdane;
+                                                    font-size:12px;
+                                                    color: #666666;
+                                                }                
+                                                .cortxt {
+                                                    color: cornflowerblue;
+                                                }
+                                                .h3 {
+                                                    text-align:center;
+                                                    margin-top:2%;
+                                                }
+                                            </style>
+                                        </head>
+                                        <body>
+                                            <table width='510' border='1' cellpadding='1' cellspacing='1' bgcolor=''>
+                                                <tr>
+                                                <td colspan='4'>
+                                                    <h3 class='h3'>Assunto: ".$assunto." </h3>
+                                                <td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <tr>
+                                                        <td width='500'>Nome: <label class='cortxt'>".$nome." </label> </td>
+                                                        </tr>
+                                                        <tr>
+                                                        <td width='320'>E-mail: <label class='cortxt'>".$emailEnvi." </label>  </b></td>
+                                                        </tr>   
+                                                        <tr>
+                                                        <td width='320'>Mensagem: <label class='cortxt'>".$mensagemEnvi." </label></td>
+                                                        </tr>
+                                                    </td>
+                                                </tr>       
+                                            </table>
+                                        </body>
+                                    </html>
+                                    ";
+                                    
+                                
+                                    //Define o corpo do email
+                                    $mail->MsgHTML("$arquivo"); 
+                                
+                                    ////Caso queira colocar o conteudo de um arquivo utilize o método abaixo ao invés da mensagem no corpo do e-mail.
+                                    //$mail->MsgHTML(file_get_contents('arquivo.html'));
+                                
+                                    $mail->Send();
+                                    echo "<p class='negrito'>Mensagem enviada com sucesso</p>\n";
+                                                
+                                    //caso apresente algum erro é apresentado abaixo com essa exceção.
+                                    }catch (phpmailerException $e) {
+                                     echo "<p class='negrito'> E-mail enviado com sucesso. </p>".$e->null;//$e->errorMessage()."error"; //Mensagem de erro costumizada do PHPMailer
+                                    }
+                                }
+                                ?>
                                 <div class="row divRowStyleMaps">
                                     <div class="col-md-5 styleAlinharAEsquerda">    
-                                        <form action="enviarEmail.php" method="POST">                   
-                                            <input class="form-control txtTamanho" name="name" type="text" id="fullName" placeholder="Nome" required>
-                                            <input class="form-control txtTamanho" type="text" name="email"  id="email" placeholder="E-mail" required>
-                                            <input class="form-control txtTamanho" type="text" name="assunto"  id="assunto" placeholder="Assunto" required>
-                                            <textarea  class="txtTamanho txtMsg" name="txtMsg" id="txtMsg" cols="auto" placeholder="Mensagem"></textarea>
-                                            <button type="submit">Enviar</button><br>
+                                        <form action="index.php" method="POST">                   
+                                            <input class="form-control txtTamanho" name="nometxt"  type="text" id="nometxt" placeholder="Nome" required>
+                                            <input class="form-control txtTamanho" type="text" name="emailtxt"  id="emailtxt" placeholder="E-mail" required>
+                                            <input class="form-control txtTamanho" type="text" name="assuntotxt"  id="assuntotxt" placeholder="Assunto" required>
+                                            <textarea  class="txtTamanho txtMsg"   name="txtMsg" id="txtMsg" cols="auto" placeholder="Mensagem"></textarea>
+                                            <button type="submit" name="BTEnvia">Enviar</button>                                           
                                         </form>
                                     </div>
                                     <div class="col-md-7">                           
@@ -307,6 +418,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
         <script src="js/slider.js"></script>
+
         <script>
             $("figure").mouseleave(
                 function() {

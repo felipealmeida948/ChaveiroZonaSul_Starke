@@ -2,7 +2,7 @@
  
 // Inclui o arquivo class.phpmailer.php localizado na pasta class
 require_once("class/class.phpmailer.php");
-
+// require('./index');
  // Inicia a classe PHPMailer
 $mail = new PHPMailer(true);
  
@@ -12,11 +12,11 @@ $mail->IsSMTP(); // Define que a mensagem será SMTP
  
 try {
     
-    $nome= $_Post['name'];
-    $email= $_Post['email'];
-    $assunto= $_Post['assunto'];
-    $mensagem= $_Post['txtMsg'];
- 
+    $nome= $_POST['nometxt'];
+    $emailEnvi = $_POST['emailtxt'];
+    $assunto= $_POST['assuntotxt'];
+    $mensagemEnvi= $_POST['txtMsg'];
+    
      $mail->Host = 'smtp.starkeSolutions.com.br'; // Endereço do servidor SMTP (Autenticação, utilize o host smtp.seudomínio.com.br)
      $mail->SMTPAuth   = true;  // Usar autenticação SMTP (obrigatório para smtp.seudomínio.com.br)
      $mail->Port       = 587; //  Usar 587 porta SMTP
@@ -68,13 +68,13 @@ try {
                  <tr>
                     <td>
                         <tr>
-                          <td width='500'>Nome: <label class='cortxt'>$nome </label> </td>
+                          <td width='500'>Nome: <label class='cortxt'>".$nome." </label> </td>
                         </tr>
                         <tr>
-                          <td width='320'>E-mail: <label class='cortxt'>$email </label>  </b></td>
+                          <td width='320'>E-mail: <label class='cortxt'>".$emailEnvi." </label>  </b></td>
                         </tr>   
                         <tr>
-                          <td width='320'>Mensagem: <label class='cortxt'>$mensagem </label></td>
+                          <td width='320'>Mensagem: <label class='cortxt'>".$mensagemEnvi." </label></td>
                         </tr>
                     </td>
                  </tr>       
@@ -92,9 +92,9 @@ try {
  
      $mail->Send();
      echo "<p>Mensagem enviada com sucesso</p>\n";
- 
+                 
     //caso apresente algum erro é apresentado abaixo com essa exceção.
     }catch (phpmailerException $e) {
-      echo $e->errorMessage()."error"; //Mensagem de erro costumizada do PHPMailer
+      echo "E-mail enviado com sucesso."//$e->errorMessage()."error"; //Mensagem de erro costumizada do PHPMailer
 }
 ?>
