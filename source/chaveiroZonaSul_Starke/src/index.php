@@ -287,13 +287,13 @@
                                     $mail->Host = 'smtp.starkeSolutions.com.br'; // Endereço do servidor SMTP (Autenticação, utilize o host smtp.seudomínio.com.br)
                                     $mail->SMTPAuth   = true;  // Usar autenticação SMTP (obrigatório para smtp.seudomínio.com.br)
                                     $mail->Port       = 587; //  Usar 587 porta SMTP
-                                    $mail->Username = 'jefferson@starkesolutions.com.br'; // Usuário do servidor SMTP (endereço de email)
-                                    $mail->Password = '900611Jeff@Starke'; // Senha do servidor SMTP (senha do email usado)
+                                    $mail->Username = 'no-reply@starkesolutions.com.br'; // Usuário do servidor SMTP (endereço de email)
+                                    $mail->Password = ''; // Senha do servidor SMTP (senha do email usado)
                                 
                                     //Define o remetente
                                     // =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
-                                    $mail->SetFrom('jefferson@starkesolutions.com.br', 'Jefferson de Jesus'); //Seu e-mail
-                                    $mail->AddReplyTo('jefferson@starkesolutions.com.br', 'Jefferson de jesus'); //Seu e-mail
+                                    $mail->SetFrom('no-reply@starkesolutions.com.br', 'Jefferson de Jesus'); //Seu e-mail
+                                    $mail->AddReplyTo('no-reply@starkesolutions.com.br', 'Jefferson de jesus'); //Seu e-mail
                                     $mail->Subject = "".$assunto."";//Assunto do e-mail
                                 
                                 
